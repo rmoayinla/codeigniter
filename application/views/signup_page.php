@@ -15,50 +15,81 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="row">
 					<div class="col-lg-6 mx-auto">
 						<h1>Signup</h1>
-						<form>
-							<div class="form-row">
-								<div class="form-group col-md-6">
-								  <label for="exampleFormControlInput1">Fullname </label>
-								  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="client_fullname" />
+						<form id="signup-form" >
+							<div id="form-step-1" class="form-step w-100">
+								<div class="form-row">
+									<div class="form-group col-md-6">
+									  <label for="">Fullname </label>
+									  <input type="text" class="form-control" id="client-fullname" placeholder="Your fullname e.g. Salami Adebayo" name="client_fullname" />
+									</div>
+
+									<div class="form-group col-md-6">
+									  <label for="">Username </label>
+									  <input type="text" class="form-control" id="client-username" placeholder="name@example.com" name="client_username" />
+									</div>
 								</div>
 
-								<div class="form-group col-md-6">
-								  <label for="exampleFormControlInput1">Username </label>
-								  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="client_username" />
-								</div>
-							</div>
+								<div class="form-row">
+									<div class="form-group col-md-6">
+									  <label for="">Email address</label>
+									  <input type="email" class="form-control" id="client-email" placeholder="name@example.com" name="client_email" />
+									</div>
 
-							<div class="form-row">
-								<div class="form-group col-md-6">
-								  <label for="exampleFormControlInput1">Email address</label>
-								  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="client_email" />
+									<div class="form-group col-md-6">
+									  <label for="">Password </label>
+									  <input type="password" class="form-control" id="client-password" placeholder="name@example.com" name="client_password" />
+									</div>
 								</div>
 
-								<div class="form-group col-md-6">
-								  <label for="exampleFormControlInput1">Password </label>
-								  <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="client_password" />
-								</div>
-							</div>
-
-							<div class="form-group">
-							   <label for="exampleFormControlFile1">Example file input</label>
-							   <input type="file" class="form-control-file" id="exampleFormControlFile1">
-							 </div>
-							 <div class="form-group">
-								 <legend class="col-form-label">Sex</legend>
-								 <div class="form-check form-check-inline">
-								   <input class="form-check-input" type="radio" name="sex" id="inlineRadio1" value="male">
-								   <label class="form-check-label" for="inlineRadio1">Male</label>
+								<div class="form-group">
+								   <label for="">Example file input</label>
+								   <input type="file" class="form-control-file" id="client-photo">
 								 </div>
-								 <div class="form-check form-check-inline">
-								   <input class="form-check-input" type="radio" name="sex" id="inlineRadio2" value="female">
-								   <label class="form-check-label" for="inlineRadio2">Female </label>
-								 </div>
-							</div>
+								 <div class="form-group">
+									 <legend class="col-form-label">Sex</legend>
+									 <div class="form-check form-check-inline">
+									   <input class="form-check-input" type="radio" name="sex" id="client-sex-male" value="male">
+									   <label class="form-check-label" for="inlineRadio1">Male</label>
+									 </div>
+									 <div class="form-check form-check-inline">
+									   <input class="form-check-input" type="radio" name="sex" id="client-sex-female" value="female">
+									   <label class="form-check-label" for="inlineRadio2">Female </label>
+									 </div>
+								</div>
+								<button type="button" class="btn btn-primary next-button step-button">Next</button>
 
-							<div class="form-group">
-								<button type="submit" class="btn btn-primary">Submit</button>
-							</div>
+							</div><!--#form-step-1 closes -->
+							
+							<div id="form-step-2" class="form-step fade-out w-100">
+								<div class="form-row">
+									<div class="form-group col-md-6">
+									  <label for="exampleFormControlInput1">Construction Type </label>
+									  <select class="form-control" id="" name="construction_type">
+									  	<option value="2_bedroom">2 Bedroom Bungalow </option>
+									  	<option value="2_bedroom">2 Bedroom Bungalow </option>
+									  	<option value="2_bedroom">2 Bedroom Bungalow </option>
+									  	<option value="2_bedroom">2 Bedroom Bungalow </option>
+									  </select>
+									</div>
+									<div class="form-group col-md-6">
+									  <label for="exampleFormControlInput1">Construction Package </label>
+									  <select class="form-control" id="" name="construction_package">
+									  	<option value="2_bedroom">2 Bedroom Bungalow </option>
+									  	<option value="2_bedroom">2 Bedroom Bungalow </option>
+									  	<option value="2_bedroom">2 Bedroom Bungalow </option>
+									  	<option value="2_bedroom">2 Bedroom Bungalow </option>
+									  </select>
+									</div>
+
+									<button type="button" class="btn btn-primary prev-button step-button mr-2">Back</button>
+
+									<button type="button" class="btn btn-primary next-button step-button">Next</button>
+
+									
+								</div>
+							</div><!--#form-step-2 closes-->
+
+							<input type="hidden" name="return_url" value="<?php echo current_url(); ?>" />
 						
 						</form>
 
