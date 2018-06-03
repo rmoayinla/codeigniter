@@ -1,3 +1,27 @@
 #container > main{
 	min-height: 100vh;
 }
+
+.form-step{
+	position:absolute;
+	transform: translate(0,0);
+}
+.slide-out, .slide-in{
+	transition:transform .8s, opacity .5s;
+}
+.slide-out{
+	transform: translate(100px, 0px);
+}
+.slide-in{
+	transform: translate(0px, 0px);
+	opacity: 1;
+}
+
+.fade-out{
+	opacity: 0;
+	transition: opacity .8s;
+	visibility: hidden;
+}
+form{
+	position: relative;
+}
