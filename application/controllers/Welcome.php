@@ -3,6 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
+	private $allowed_urls = array();
+
+	public function __construct()
+	{
+		parent::__construct();
+		
+		$this->setup_urls();
+	}
 	/**
 	 * Index Page for this controller.
 	 *
@@ -22,4 +30,23 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+
+	/**
+	 * This method loads the different views that come to this controller
+	 * e.g. /login, /signup etc
+	 * each view is routed and the view template is selected 
+	 */
+	public function view($url)
+	{
+		if(empty($this->allowed_urls[$url])) show_404();
+
+		$this->load->view($this->allowed_urls[$url]);
+	}
+
+	private function setup_urls()
+	{
+		$this->allowed_urls = ['login' => 'login_page', 'signup' => 'signup_page'];
+	}
+
+
 }
