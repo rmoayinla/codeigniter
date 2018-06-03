@@ -3,7 +3,6 @@
 }
 
 .form-step{
-	position:absolute;
 	transform: translate(0,0);
 }
 .slide-out, .slide-in{
@@ -22,6 +21,8 @@
 	transition: opacity .8s;
 	visibility: hidden;
 }
-form{
-	position: relative;
+
+.navbar-brand-logo{
+	width: 60px;
+	height: auto;
 }
