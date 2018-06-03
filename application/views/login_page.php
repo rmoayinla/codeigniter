@@ -16,7 +16,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<main class="py-5" id="main-content">
 				<div class="row">
 					<div class="col-lg-4 mx-auto">
-						<h1>Login</h1>
+						<div class="py-3 text-center">
+							<img src="<?php echo site_url()."images/logo.png"?>" class="medium-logo" alt="360 Degree Logo" />
+						</div>
+						<h1 class="mb-3">Login</h1>
 						
 						<?php if(!empty($this->session->flashdata('validation_errors'))): ?>
 							<div class="alert alert-warning">
