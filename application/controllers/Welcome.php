@@ -1,6 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+/**
+ *
+ * Default Controller for our app
+ *
+ * Handles all requests to the root of the app including the homepage 
+ *
+ *@package: codeigniter
+ *@since: v1.0
+ *@author: Rabiu Mustapha
+ *@category: Controller 
+ *
+ */
 class Welcome extends CI_Controller {
 
 	private $allowed_urls = array();
@@ -8,7 +19,8 @@ class Welcome extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		
+
+		//setup the allowed urls for our controller //
 		$this->setup_urls();
 	}
 	/**
@@ -28,6 +40,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		//load the homepage view //
 		$this->load->view('welcome_message');
 	}
 
@@ -38,11 +51,17 @@ class Welcome extends CI_Controller {
 	 */
 	public function view($url)
 	{
+		// show 404 error page if the url is not in the whitelist //
 		if(empty($this->allowed_urls[$url])) show_404();
 
 		$this->load->view($this->allowed_urls[$url]);
 	}
 
+	/**
+	 * Setup urls allowed to be loaded by this controller 
+	 * kindof a whitelist to make sure allowed urls has a view 
+	 *
+	 */
 	private function setup_urls()
 	{
 		$this->allowed_urls = ['login' => 'login_page', 'signup' => 'signup_page'];
