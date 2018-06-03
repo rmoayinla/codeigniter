@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <?php include VIEWPATH."partials/header.php" ?>
 
-		<title>Welcome to CodeIgniter</title>
+		<title>Signup- CodeIgniter</title>
 		
 	</head>
 
@@ -16,18 +16,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="row">
 					<div class="col-lg-4 mx-auto">
 						<h1>Login</h1>
-						<div class="form-group">
-						  <label for="exampleFormControlInput1">Email or Username </label>
-						  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="client_email" />
-						</div>
+						<div class="alert alert-warning"><?php echo $this->session->flashdata('validation_errors'); ?></div>
+						<form method="POST" action="client/login">
+							<div class="form-group">
+							  <label for="exampleFormControlInput1">Email or Username </label>
+							  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="client_email_or_username" />
+							</div>
 
-						<div class="form-group">
-							  <label for="exampleFormControlInput1">Password</label>
-							  <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="client_email" />
-						</div>
-						<div class="form-group">
-							<button type="submit" class="btn btn-primary">Submit</button>
-						</div>
+							<div class="form-group">
+								  <label for="exampleFormControlInput1">Password</label>
+								  <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="client_password" />
+							</div>
+							<input type="hidden" name="return_url" value="<?php echo current_url(); ?>" />
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</main>
