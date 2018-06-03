@@ -14,9 +14,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<main class="py-5">
 				<div class="row">
 					<div class="col-lg-6 mx-auto">
-						<h1>Signup</h1>
-						<form id="signup-form" >
-							<div id="form-step-1" class="form-step w-100">
+						<div class="py-3 text-center">
+							<img src="<?php echo site_url()."images/logo.png"?>" class="medium-logo" alt="360 Degree Logo" />
+						</div>
+						<h1 class="mb-3">Signup</h1>
+						<form id="signup-form" class="position-relative" method="POST" action="client/signup">
+							<div id="form-step-1" class="form-step w-100 position-absolute">
 								<div class="form-row">
 									<div class="form-group col-md-6">
 									  <label for="">Fullname </label>
@@ -60,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 							</div><!--#form-step-1 closes -->
 							
-							<div id="form-step-2" class="form-step fade-out w-100">
+							<div id="form-step-2" class="form-step fade-out w-100 position-absolute">
 								<div class="form-row">
 									<div class="form-group col-md-6">
 									  <label for="exampleFormControlInput1">Construction Type </label>
@@ -83,11 +86,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 									<button type="button" class="btn btn-primary prev-button step-button mr-2">Back</button>
 
-									<button type="button" class="btn btn-primary next-button step-button">Next</button>
+									<button type="button" class="btn btn-primary preview-button step-button">Preview</button>
 
 									
 								</div>
 							</div><!--#form-step-2 closes-->
+
+							<div id="form-step-3" class="w-100 form-step fade-out">
+								<div class="form-preview"> </div>
+								<button type="button" class="btn btn-primary prev-button step-button mr-2">Back</button>
+
+								<button type="submit" class="btn btn-primary step-button">Finish</button>
+
+							</div><!--#form-step-3 closes -->
 
 							<input type="hidden" name="return_url" value="<?php echo current_url(); ?>" />
 						
