@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  *
  * Authentication Controller 
@@ -28,6 +29,12 @@ class Authentication extends CI_Controller{
 		$this->load->database();
 	}
 
+	/**
+	 * Handles login to the app
+	 *
+	 * Authentication and authorisation is done, redirection and errors are setup here
+	 *
+	 */
 	public function login()
 	{
 		
@@ -40,14 +47,16 @@ class Authentication extends CI_Controller{
 			redirect($this->input->post("return_url")); 
 		} 
 
-		$username_email = 	!empty($this->input->post('client_email_or_username')) ? 
-							$this->input->post('client_email_or_username') :
-							'';
-		$user_password = 	!empty($this->input->post('client_password')) ?
-							 password_hash($this->input->post('client_password'), PASSWORD_BCRYPT ):
-							 '';
+		$username_email = 	$this->input->post('client_email_or_username');
+
+		$user_password = 	password_hash($this->input->post('client_password'), PASSWORD_BCRYPT );
 
 		print_r(['username' => $username_email, 'password' => $user_password, "r" => $this->input->post("return_url")]);
 
+	}
+
+	public function signup()
+	{
+		print_r($this->input->post());
 	}
 }
